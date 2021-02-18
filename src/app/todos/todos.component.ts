@@ -7,11 +7,14 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   styleUrls: ['./todos.component.css'],
   animations: [
     trigger('fade', [
-
-      transition('void => *', [
-        style({ opacity: 0}),
+      state('void',style({ opacity:0 })),/// substitui o necessidade de por o STYLE({ opacity: 0 }) em outro lugares
+      transition('void => *, * => void', [ /// "* => void" substitui a segunda opção do TRANSITION(..), Ou 'void <=> *'//Bidirecional
+        //style({ opacity: 0}),
         animate(2000, style({backgroundColor: 'white', opacity: 1})),
-      ])
+      ]),
+      // transition('* => void', [
+      //   animate(2000 )
+      // ])
     ])
   ]
 })
